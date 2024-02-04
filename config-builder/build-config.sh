@@ -23,13 +23,13 @@ if [ -f $haproxy_cfg ]; then
     rm $haproxy_cfg
 fi
 
-
-# add the base haproxy.cfg file to the haproxy.cfg file
-cat "$base_haproxy_cfg" >> $haproxy_cfg
-
-while getopts "cl" flag
+while getopts "clb" flag
 do
     case "${flag}" in
+        b)
+            # add the base haproxy.cfg file to the haproxy.cfg file
+            cat "$base_haproxy_cfg" >> $haproxy_cfg
+            ;;
         c)
             # add the control haproxy.cfg file to the haproxy.cfg file
             cat "$control_haproxy_cfg" >> $haproxy_cfg
