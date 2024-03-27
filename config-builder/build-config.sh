@@ -17,6 +17,9 @@ control_haproxy_cfg="${SCRIPTPATH}/configs/control-haproxy.cfg"
 # loadbalancer haproxy.cfg file
 loadbalancer_haproxy_cfg="${SCRIPTPATH}/configs/loadbalancer-haproxy.cfg"
 
+# monitoring haproxy.cfg file
+monitoring_haproxy_cfg="${SCRIPTPATH}/configs/monitoring-haproxy.cfg"
+
 # check if the haproxy.cfg file exists
 if [ -f $haproxy_cfg ]; then
     # remove the haproxy.cfg file
@@ -37,6 +40,10 @@ do
         l)
             # add the loadbalancer haproxy.cfg file to the haproxy.cfg file
             cat "$loadbalancer_haproxy_cfg" >> $haproxy_cfg
+            ;;
+        m)
+            # add the monitoring haproxy.cfg file to the haproxy.cfg file
+            cat "$monitoring_haproxy_cfg" >> $haproxy_cfg
             ;;
         \?)
             echo "Invalid option: -$OPTARG" >&2
