@@ -26,7 +26,7 @@ if [ -f $haproxy_cfg ]; then
     rm $haproxy_cfg
 fi
 
-while getopts "clb" flag
+while getopts "clbm" flag
 do
     case "${flag}" in
         b)
